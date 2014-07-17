@@ -1,7 +1,6 @@
-Iterators = require('./iterators.js');
-
 // something is broken here.  I can require the Car constructor in Node, but when I attempt to make a new iteration
 // I get an error that Car is not defined.  This is preventing me from running tests as well.
+
 function Car(make, model, year, color) {
   this.make = make;
   this.model = model;
@@ -34,13 +33,17 @@ Car.prototype.off = function() {
 
 Car.prototype.driveTo = function(destination) {
   if (this.state === "on") {
-    console.log("driving to", destination); 
+    var result = "driving to " + destination;
+    return result;
+    console.log(result); 
   }
 };
 
 Car.prototype.park = function() {
   if (this.state === "off") {
-    console.log("Parked!");
+    var result = "Parked!";
+    return result;
+    console.log(result);
   }
 };
 
@@ -52,7 +55,7 @@ Car.prototype.pickUp = function(name) {
 };
 
 Car.prototype.dropOff = function(name) {
-  if (this.state === off) {
+  if (this.state === 'off') {
     return;
   }
   // too tired to write and test a contains HOF right now
